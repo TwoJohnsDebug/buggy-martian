@@ -12,6 +12,7 @@ using UnityEngine.UI;
         public BoardManager boardScript;
         public int playerFoodPoints = 100;
         [HideInInspector] public bool playersTurn = true;
+        public Player playerscript;
 
     //THISCOMMENTISANANGRIERMARTIAN
         private Text levelText;
@@ -24,11 +25,14 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
-            if (instance == null)
-                instance = this;
-            else if (instance != this)
-                Destroy(gameObject);
-
+            Debug.Log("waking up");
+           // if (instance == null)
+            instance = this;
+         //   else if (instance != this)
+            //    {
+                //    Destroy(gameObject);
+             //       Debug.LogWarning("Destroyed instance, already running", instance);
+            //     }
             DontDestroyOnLoad(gameObject);
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
@@ -39,9 +43,18 @@ using UnityEngine.UI;
     
     private void levelcheck()
     {
+        if (playerscript.restarts == 0)
+            {
             Debug.Log("level " + level + " load");
             InitGame();
-    }
+            }
+        else
+            {
+            Debug.Log("level " + level + " load");
+            level++;
+            InitGame();
+            }
+       }
 
       public void InitGame()
         {
