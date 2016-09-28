@@ -1,0 +1,6 @@
+{
+  "name": "Buggy-martian",
+  "tagline": "martian is the working title for the tester game being made by John H and John W following a unity tutorial . In the process of following this tutorial many bugs were encountered due to, among other things, API Updates made by the unity team. This repository is a place to squash those bugs.",
+  "body": "# buggy-martian\r\n-----README-----\r\n\r\nHow to edit and collaborate on this project. (and keep it synced)\r\n\r\n1. download the github for desktop app and sign in\r\n\r\n2. ***clone*** the repository(a unity project) named for you to your PC\r\n\r\n3. make any changes and bug fixes in unity/whatever ide you use.\r\n\r\n4. under the changes section, summarise with the date and describe any changes. then press ***commit***\r\n\r\n5. once the changes have been committed, press the ***sync*** button in the top right.\r\n\r\n6. **wait** for synchronisation to occur\r\n\r\n7. if the changes have fixed anything, create a ***pull request*** for that *commit* on the github website. (base master, compare yours); otherwise, keep the branches seperate\r\n\r\n8. for any more changes, repeat steps  3-7\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
