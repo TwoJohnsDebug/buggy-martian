@@ -24,11 +24,14 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
-            if (instance == null)
-                instance = this;
-            else if (instance != this)
-                Destroy(gameObject);
-
+            Debug.Log("waking up");
+           // if (instance == null)
+            instance = this;
+         //   else if (instance != this)
+            //    {
+                //    Destroy(gameObject);
+             //       Debug.LogWarning("Destroyed instance, already running", instance);
+            //     }
             DontDestroyOnLoad(gameObject);
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
