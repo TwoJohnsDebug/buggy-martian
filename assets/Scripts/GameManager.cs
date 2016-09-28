@@ -24,6 +24,7 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
+            Debug.Log("waking up");
             if (instance == null)
                 instance = this;
             else if (instance != this)
