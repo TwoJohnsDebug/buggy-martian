@@ -5,7 +5,7 @@ How to edit and collaborate on this project. (and keep it synced)
 
 1. download the github for desktop app and sign in
 
-2. ***clone*** the john house's repository(a unity project) to your PC
+2. ***clone*** the repository(a unity project) named for you to your PC
 
 3. make any changes and bug fixes in unity/whatever ide you use.
 
