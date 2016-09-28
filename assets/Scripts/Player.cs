@@ -93,6 +93,7 @@ public class Player : MovingObject
         restarts++;
         GameManager.instance.playerFoodPoints = food;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        Debug.ClearDeveloperConsole();
     }
      public void LoseFood(int loss)
     {
