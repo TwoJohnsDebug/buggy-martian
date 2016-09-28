@@ -15,7 +15,7 @@ How to edit and collaborate on this project. (and keep it synced)
 
 6. **wait** for synchronisation to occur
 
-7. create a ***pull request*** for that *commit* on the github website. (base master, compare john house's)
+7. if the changes have fixed anything, create a ***pull request*** for that *commit* on the github website. (base master, compare john house's); otherwise, keep the branches seperate
 
 8. for any more changes, repeat steps  3-7
 
