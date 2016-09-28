@@ -25,13 +25,13 @@ using UnityEngine.UI;
         public void Awake()
         {
             Debug.Log("waking up");
-            if (instance == null)
-                instance = this;
-            else if (instance != this)
-                {
-                    Destroy(gameObject);
-                    Debug.LogWarning("Destroyed instance, already running", instance);
-                 }
+           // if (instance == null)
+            instance = this;
+         //   else if (instance != this)
+            //    {
+                //    Destroy(gameObject);
+             //       Debug.LogWarning("Destroyed instance, already running", instance);
+            //     }
             DontDestroyOnLoad(gameObject);
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
