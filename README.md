@@ -5,9 +5,9 @@ How to edit and collaborate on this project. (and keep it synced)
 
 1. download the github for desktop app and sign in
 
-2. ***clone*** the branch with your name(a unity project) to your PC
+2. ***clone*** the branch named your username (it will be a unity project) to your PC
 
-3. make any changes and bug fixes in unity/whatever ide you use.
+3. make any changes and bug fixes in unity/whatever IDE you use.
 
 4. under the changes section, summarise with the date and describe any changes. then press ***commit***
 
