@@ -37,23 +37,15 @@ using UnityEngine.UI;
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
             Debug.Log("logging");
+            level++
             levelcheck();
             Debug.Log(level);
         }
     
     private void levelcheck()
     {
-        if (playerscript.restarts == 0)
-            {
             Debug.Log("level " + level + " load");
             InitGame();
-            }
-        else
-            {
-            Debug.Log("level " + level + " load");
-            level++;
-            InitGame();
-            }
        }
 
       public void InitGame()
