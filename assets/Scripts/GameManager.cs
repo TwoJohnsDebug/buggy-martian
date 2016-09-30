@@ -25,7 +25,7 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
-            Debug.Log("waking up");
+            Debug.Log("waking up " + playerscript.restarts);
            // if (instance == null)
             instance = this;
          //   else if (instance != this)
@@ -36,23 +36,25 @@ using UnityEngine.UI;
             DontDestroyOnLoad(gameObject);
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
-            Debug.Log("logging");
-            level++
+            Debug.Log("logging " + playerscript.restarts);
             levelcheck();
             Debug.Log(level);
+            ClearConsole();
         }
-    
+    private void ClearConsole()
+    {
+        Debug.ClearDeveloperConsole();
+    }
     private void levelcheck()
     {
-            Debug.Log("level " + level + " load");
+            Debug.Log("level " + level + " load " + playerscript.restarts);
             InitGame();
        }
 
       public void InitGame()
         {
-             Debug.Log("Doing Setup");
+             Debug.Log("Doing Setup " + playerscript.restarts);
             doingSetup = true;
-            
             levelImage = GameObject.Find("LevelImage");
             levelText = GameObject.Find("LevelText").GetComponent<Text>();
             levelText.text = "Day " + level;

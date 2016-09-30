@@ -61,7 +61,7 @@ public class Player : MovingObject
     {
         if (other.tag == "Exit")
         {
-            Debug.Log("on exit");
+            Debug.Log("on exit " + restarts);
             Invoke("Restart", restartLevelDelay);
             enabled = false;
         }
@@ -89,11 +89,11 @@ public class Player : MovingObject
     private void Restart()
     {
         //Application.LoadLevel(Application.loadedLevel);
-        Debug.Log("Restarting...");
+        Debug.Log("Restarting... " + restarts);
         restarts++;
+        GameManager.instance.level++;
         GameManager.instance.playerFoodPoints = food;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        Debug.ClearDeveloperConsole();
     }
      public void LoseFood(int loss)
     {
