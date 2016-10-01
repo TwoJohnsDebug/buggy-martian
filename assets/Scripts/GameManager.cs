@@ -6,17 +6,16 @@ using UnityEngine.UI;
     public class GameManager : MonoBehaviour
     {   
     //THISCODEISANANGRYMARTIAN
-        public float LevelStartDelay = 2f;
+        public float LevelStartDelay =  2f;
         public float turnDelay = .1f;
         public static GameManager instance = null;
         public BoardManager boardScript;
-        public int playerFoodPoints = 100;
         [HideInInspector] public bool playersTurn = true;
+        public Player playerscript;
 
     //THISCOMMENTISANANGRIERMARTIAN
         private Text levelText;
         private GameObject levelImage;
-        [HideInInspector] public int level = 1;
         private List<Enemy> enemies;
         private bool enemiesMoving;
         private bool doingSetup;
@@ -24,37 +23,43 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
-            if (instance == null)
-                instance = this;
-            else if (instance != this)
-                Destroy(gameObject);
-
+            Debug.Log("waking up " + playerscript.restarts + " " + MyGlobals.jlevel);
+           // if (instance == null)
+            instance = this;
+         //   else if (instance != this)
+            //    {
+                //    Destroy(gameObject);
+             //       Debug.LogWarning("Destroyed instance, already running", instance);
+            //     }
             DontDestroyOnLoad(gameObject);
             enemies = new List<Enemy>();
             boardScript = GetComponent<BoardManager>();
-            Debug.Log("logging");
+            Debug.Log("logging " + playerscript.restarts);
             levelcheck();
-            Debug.Log(level);
+            Debug.Log(MyGlobals.jlevel);
+            ClearConsole();
         }
-    
+    private void ClearConsole()
+    {
+        Debug.ClearDeveloperConsole();
+    }
     private void levelcheck()
     {
-            Debug.Log("level " + level + " load");
+            Debug.Log("level " + MyGlobals.jlevel + " load " + playerscript.restarts);
             InitGame();
-    }
+       }
 
       public void InitGame()
         {
-             Debug.Log("Doing Setup");
+             Debug.Log("Doing Setup " + playerscript.restarts);
             doingSetup = true;
-            
             levelImage = GameObject.Find("LevelImage");
             levelText = GameObject.Find("LevelText").GetComponent<Text>();
-            levelText.text = "Day " + level;
+            levelText.text = "Day " + MyGlobals.jlevel;
             levelImage.SetActive(true);
             Invoke("HideLevelImage", LevelStartDelay);
             enemies.Clear();
-            boardScript.SetupScene(level);
+            boardScript.SetupScene(MyGlobals.jlevel);
         }
 
         private void HideLevelImage()
@@ -65,7 +70,7 @@ using UnityEngine.UI;
         
         public void GameOver()
         {
-            levelText.text = "After " + level + " days, you starved.";
+            levelText.text = "After " + MyGlobals.jlevel + " days, you starved.";
             levelImage.SetActive(true);
             enabled = false;
         }

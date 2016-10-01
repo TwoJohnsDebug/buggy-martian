@@ -13,25 +13,19 @@ public class Player : MovingObject
     public Text foodText;
     private Animator animator;
     private int food;
+    [HideInInspector] public int restarts = 0;
 
-	// Use this for initialization
-	protected override void Start ()
+    // Use this for initialization
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
 
-        food = GameManager.instance.playerFoodPoints;
+        food = MyGlobals.playerFoodPoints;
 
         foodText.text = "Food: " + food;
 
         base.Start();
-	}
-	
-   //  private void OnDisable()
-   // {
-   //   Debug.Log("ondisable");
-   //   Debug.Log("Food = " + food);
-   //
-  //  }
+    }
 
 	// Update is called once per frame
 	void Update ()
@@ -67,7 +61,7 @@ public class Player : MovingObject
     {
         if (other.tag == "Exit")
         {
-            Debug.Log("on exit");
+            Debug.Log("on exit " + restarts);
             Invoke("Restart", restartLevelDelay);
             enabled = false;
         }
@@ -95,11 +89,14 @@ public class Player : MovingObject
     private void Restart()
     {
         //Application.LoadLevel(Application.loadedLevel);
-        Debug.Log("Restarting...");
-        GameManager.instance.playerFoodPoints = food;
-        GameManager.instance.level++;
+        Debug.Log("Restarting... " + restarts);
+        restarts++;
+        Debug.Log("Restarts: " + restarts);
+        MyGlobals.jlevel++;
+        MyGlobals.playerFoodPoints = food;
+        Debug.Log(MyGlobals.jlevel + " " + MyGlobals.playerFoodPoints);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        
+        Debug.Log("Restarts after reset: " + restarts);
     }
      public void LoseFood(int loss)
     {
