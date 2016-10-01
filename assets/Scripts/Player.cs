@@ -20,7 +20,7 @@ public class Player : MovingObject
     {
         animator = GetComponent<Animator>();
 
-        food = GameManager.instance.playerFoodPoints;
+        food = MyGlobals.playerFoodPoints;
 
         foodText.text = "Food: " + food;
 
@@ -92,8 +92,9 @@ public class Player : MovingObject
         Debug.Log("Restarting... " + restarts);
         restarts++;
         Debug.Log("Restarts: " + restarts);
-        GameManager.instance.level++;
-        GameManager.instance.playerFoodPoints = food;
+        MyGlobals.jlevel++;
+        MyGlobals.playerFoodPoints = food;
+        Debug.Log(MyGlobals.jlevel + " " + MyGlobals.playerFoodPoints);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         Debug.Log("Restarts after reset: " + restarts);
     }
