@@ -3,7 +3,7 @@ using System.Collections;
 public static class MyGlobals
 {
     // public const string Prefix = "ID_"; // cannot change
-    public static int jlevel = 1; // can change because not const
+    public static int jlevel = 0; // can change because not const
     public static int playerFoodPoints = 100;
 }
 public class Loader : MonoBehaviour

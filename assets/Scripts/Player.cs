@@ -21,7 +21,6 @@ public class Player : MovingObject
         animator = GetComponent<Animator>();
 
         food = MyGlobals.playerFoodPoints;
-
         foodText.text = "Food: " + food;
 
         base.Start();
@@ -75,6 +74,11 @@ public class Player : MovingObject
         {
             food += pointsPerSoda;
             foodText.text = "+" + pointsPerSoda + "     Food: " + food;
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag=="Level")
+        {
+            MyGlobals.jlevel++;
             other.gameObject.SetActive(false);
         }
     }

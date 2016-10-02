@@ -55,7 +55,14 @@ using UnityEngine.UI;
             doingSetup = true;
             levelImage = GameObject.Find("LevelImage");
             levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        if (MyGlobals.jlevel == 0)
+        {
+            levelText.text = "Level Select";
+        }
+        else
+        {
             levelText.text = "Day " + MyGlobals.jlevel;
+        }
             levelImage.SetActive(true);
             Invoke("HideLevelImage", LevelStartDelay);
             enemies.Clear();
