@@ -13,7 +13,7 @@ public class Player : MovingObject
     public Text foodText;
     private Animator animator;
     private int food;
-    [HideInInspector] public int restarts = 0;
+    [HideInInspector] public int restarts;
 
     // Use this for initialization
     protected override void Start()
@@ -41,17 +41,15 @@ public class Player : MovingObject
             vertical = 0;
 
         if (horizontal != 0 || vertical != 0)
-            AttemptMove<Wall>(horizontal, vertical); 
+            AttemptMove<Wall>(horizontal, vertical);
 	}
-     
+
     protected override void AttemptMove <T> (int xDir, int yDir)
     {
         food--;
         foodText.text = "Food: " + food;
 
         base.AttemptMove<T>(xDir, yDir);
-
-        //RaycastHit2D hit;
         CheckIfGameOver();
         GameManager.instance.playersTurn = false;
     }

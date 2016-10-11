@@ -37,7 +37,7 @@ using System.Collections;
             {
                 StartCoroutine(SmoothMovement(end));
                 return true;
-            }  
+            }
 
             return false;
         }
