@@ -13,6 +13,7 @@ public class Player : MovingObject
     public Text foodText;
     private Animator animator;
     private int food;
+    private Vector2 touchorigin = Vector2.one;
     [HideInInspector] public int restarts;
 
     // Use this for initialization
@@ -34,11 +35,31 @@ public class Player : MovingObject
 
         int horizontal = 0;
         int vertical = 0;
+        #if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_EDITOR
         horizontal = (int)Input.GetAxisRaw("Horizontal");
         vertical = (int)Input.GetAxisRaw("Vertical");
 
         if (horizontal != 0)
             vertical = 0;
+    #else
+        if (Input.touchCount > 0)
+        {
+            Touch myTouch = Input.touches[0];
+            if (myTouch.phase == TouchPhase.Began)
+            {
+                touchorigin = myTouch.position;
+            }
+            else if (myTouch.phase == TouchPhase.Ended && touchorigin.x >= 0)
+            {
+                Vector2 touchEnd = myTouch.position;
+                float x = touchEnd.x - touchorigin.x;
+                float y = touchEnd.y - touchorigin.y;
+                touchorigin.x = -1;
+                if (Mathf.Abs(x) > Mathf.Abs(y))
+                    horizontal = x > 0 ? 1 : -1;  
+            }
+        }
+    #endif
 
         if (horizontal != 0 || vertical != 0)
             AttemptMove<Wall>(horizontal, vertical);
