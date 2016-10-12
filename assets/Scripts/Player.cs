@@ -59,7 +59,7 @@ public class Player : MovingObject
                 	{
 		    	  horizontal = x > 0 ? 1 : -1;
 			}
-		Else if (Mathf.Abs(y) > Mathf.Abs(x))
+		else if (Mathf.Abs(y) > Mathf.Abs(x))
 		{
 			vertical = y > 0 ? 1 : -1;
 		}
