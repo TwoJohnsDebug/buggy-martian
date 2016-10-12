@@ -56,7 +56,13 @@ public class Player : MovingObject
                 float y = touchEnd.y - touchorigin.y;
                 touchorigin.x = -1;
                 if (Mathf.Abs(x) > Mathf.Abs(y))
-                    horizontal = x > 0 ? 1 : -1;  
+                	{
+		    	  horizontal = x > 0 ? 1 : -1;
+			}
+		Else if (Mathf.Abs(y) > Mathf.Abs(x))
+		{
+			vertical = y > 0 ? 1 : -1;
+		}
             }
         }
     #endif
