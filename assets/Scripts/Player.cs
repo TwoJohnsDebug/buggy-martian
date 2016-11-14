@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+#pragma warning disable CC0105 // You should use 'var' whenever possible.
 public class Player : MovingObject
 {
     public int wallDamage = 1;
@@ -14,8 +14,7 @@ public class Player : MovingObject
     private Animator animator;
     private int food;
     private Vector2 touchorigin = Vector2.one;
-    [HideInInspector] public int restarts;
-
+    // [HideInInspector] public int restarts; unnecessary variable, replaced with global
     // Use this for initialization
     protected override void Start()
     {
@@ -24,7 +23,7 @@ public class Player : MovingObject
         food = MyGlobals.playerFoodPoints;
         foodText.text = "Food: " + food;
 
-        base.Start();
+        base.Start(); //runs the start function from the base class (MovingObject)
     }
 
 	// Update is called once per frame
@@ -35,7 +34,7 @@ public class Player : MovingObject
 
         int horizontal = 0;
         int vertical = 0;
-        #if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_EDITOR
+        #if UNITY_STANDALONE || UNITY_WEBPLAYER || UNITY_EDITOR || UNITY_WEBGL // checks platform and uses appropriate controls
         horizontal = (int)Input.GetAxisRaw("Horizontal");
         vertical = (int)Input.GetAxisRaw("Vertical");
 
@@ -85,7 +84,7 @@ public class Player : MovingObject
     {
         if (other.tag == "Exit")
         {
-            Debug.Log("on exit " + restarts);
+            Debug.Log("on exit " + MyGlobals.restarts);
             Invoke("Restart", restartLevelDelay);
             enabled = false;
         }
@@ -118,14 +117,14 @@ public class Player : MovingObject
     private void Restart()
     {
         //Application.LoadLevel(Application.loadedLevel);
-        Debug.Log("Restarting... " + restarts);
-        restarts++;
-        Debug.Log("Restarts: " + restarts);
+        Debug.Log("Restarting... " + MyGlobals.restarts);
+        MyGlobals.restarts++;
+        Debug.Log("Restarts: " + MyGlobals.restarts);
         MyGlobals.jlevel++;
         MyGlobals.playerFoodPoints = food;
         Debug.Log(MyGlobals.jlevel + " " + MyGlobals.playerFoodPoints);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-        Debug.Log("Restarts after reset: " + restarts);
+        Debug.Log("Restarts after reset: " + MyGlobals.restarts);
     }
      public void LoseFood(int loss)
     {
