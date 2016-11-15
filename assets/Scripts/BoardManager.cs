@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 
-
+#pragma warning disable CC0105 // You should use 'var' whenever possible.
 public class BoardManager : MonoBehaviour
 {
-        [Serializable]
+        [Serializable] //
         public class Count
         {
             public int minimum;
@@ -24,12 +24,14 @@ public class BoardManager : MonoBehaviour
         public int rows = 8;
         public Count wallCount = new Count(5, 9);
         public Count foodCount = new Count(1, 5);
+        public Count levelcount = new Count(3, 9);
         public GameObject exit;
         public GameObject[] floorTiles;
         public GameObject[] wallTiles;
         public GameObject[] foodTiles;
         public GameObject[] enemyTiles;
         public GameObject[] outerWallTIles;
+    public GameObject[] levelTiles;
 
         private Transform boardHolder;
         private List <Vector3> gridPositions = new List <Vector3> ();
@@ -50,19 +52,19 @@ public class BoardManager : MonoBehaviour
 
         void BoardSetup()
         {
-            boardHolder = new GameObject ("Board").transform;
+            boardHolder = new GameObject ("Board").transform; //
 
-            for (int x = -1; x < columns + 1; x++)
+            for (int x = -1; x < columns + 1; x++) //
             {
-                for (int y = -1; y < rows + 1; y++)
+                for (int y = -1; y < rows + 1; y++) //
                 {
-                    GameObject toInstantiate = floorTiles [Random.Range (0, floorTiles.Length)];
-                    if (x == -1 || x == columns || y == -1 || y == rows)
-                        toInstantiate = outerWallTIles [Random.Range (0, outerWallTIles.Length)];
+                    GameObject toInstantiate = floorTiles [Random.Range (0, floorTiles.Length)]; //
+                    if (x == -1 || x == columns || y == -1 || y == rows) //
+                        toInstantiate = outerWallTIles [Random.Range (0, outerWallTIles.Length)]; //
 
-                    GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                    GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject; //
 
-                    instance.transform.SetParent (boardHolder);
+                    instance.transform.SetParent (boardHolder); //
                 }
             }
         }
@@ -87,14 +89,21 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        public void SetupScene(int level)
-        {
+    public void SetupScene(int level)
+    {
             BoardSetup();
             InitialiseList();
             LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+        if (level == 0)
+        {
+            LayoutObjectAtRandom(levelTiles, levelcount.minimum, levelcount.maximum);
+        }
+        else
+        {
             LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
-            int enemyCount = (int)Mathf.Log(level, 2f);
+            int enemyCount = (int)Mathf.Log(MyGlobals.jlevel, 2f);
             LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+        }
             Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
         }
     }

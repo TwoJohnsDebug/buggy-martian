@@ -1,0 +1,82 @@
+Mono path[0] = 'F:/coding/Coding/Game folder/git/buggy-martian/buggy martian v0.4-alpha_Data/Managed'
+Mono path[1] = 'F:/coding/Coding/Game folder/git/buggy-martian/buggy martian v0.4-alpha_Data/Mono'
+Mono config path = 'F:/coding/Coding/Game folder/git/buggy-martian/buggy martian v0.4-alpha_Data/Mono/etc'
+PlayerConnection initialized from F:/coding/Coding/Game folder/git/buggy-martian/buggy martian v0.4-alpha_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55353
+Multi-casting "[IP] 192.168.0.48 [Port] 55353 [Flags] 2 [Guid] 3627594658 [EditorId] 2034489135 [Version] 1048832 [Id] WindowsPlayer(JOHNGAMING) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.0.48:55353]
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     4058 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.048 seconds
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: F:\coding\Coding\Game folder\git\buggy-martian\buggy martian v0.4-alpha_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.870911 ms
+waking up 0 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameManager:Awake() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:26)
+ 
+(Filename: F:/coding/Coding/Game folder/git/buggy-martian/assets/Scripts/GameManager.cs Line: 26)
+
+logging 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameManager:Awake() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:37)
+ 
+(Filename: F:/coding/Coding/Game folder/git/buggy-martian/assets/Scripts/GameManager.cs Line: 37)
+
+level 0 load 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameManager:levelcheck() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:48)
+GameManager:Awake() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:38)
+ 
+(Filename: F:/coding/Coding/Game folder/git/buggy-martian/assets/Scripts/GameManager.cs Line: 48)
+
+Doing Setup 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameManager:InitGame() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:54)
+GameManager:levelcheck() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:49)
+GameManager:Awake() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:38)
+ 
+(Filename: F:/coding/Coding/Game folder/git/buggy-martian/assets/Scripts/GameManager.cs Line: 54)
+
+0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameManager:Awake() (at F:\coding\Coding\Game folder\git\buggy-martian\assets\Scripts\GameManager.cs:39)
+ 
+(Filename: F:/coding/Coding/Game folder/git/buggy-martian/assets/Scripts/GameManager.cs Line: 39)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 18e8 -> priority: 1 
+  Thread -> id: 1e94 -> priority: 1 

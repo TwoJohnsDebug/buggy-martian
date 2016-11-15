@@ -4,3 +4,4 @@ F:/Backups/Coding/Unity/Editor/Data/Managed/UnityEngine.dll
 F:/Backups/Coding/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 F:/Backups/Coding/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
 F:/Backups/Coding/Unity/Editor/Data/Managed/UnityEditor.dll
+F:/Backups/Coding/Unity/Editor/Data\Managed/Mono.Cecil.dll

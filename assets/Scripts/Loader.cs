@@ -2,9 +2,10 @@
 using System.Collections;
 public static class MyGlobals
 {
-    // public const string Prefix = "ID_"; // cannot change
-    public static int jlevel = 1; // can change because not const
-    public static int playerFoodPoints = 100;
+    public static int jlevel; // can change because not const, not assigned a sdefualt is 0
+    public static int playerFoodPoints = 100; // food points, global as constant between restarts.
+    public const bool Release = false; // constant, do not change.
+    public static int restarts = 0; // restarts global
 }
 public class Loader : MonoBehaviour
     {

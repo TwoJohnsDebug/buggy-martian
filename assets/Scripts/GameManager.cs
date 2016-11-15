@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-
-    public class GameManager : MonoBehaviour
-    {   
+#pragma warning disable CC0105 // You should use 'var' whenever possible.
+public class GameManager : MonoBehaviour
+    {
     //THISCODEISANANGRYMARTIAN
-        public float LevelStartDelay =  2f;
-        public float turnDelay = .1f;
-        public static GameManager instance = null;
+        public float LevelStartDelay =  2f; // delay to show text screen
+        public float turnDelay = .1f; // delay in switching turns to pace better, not instantly move enemies.
+        public static GameManager instance; //not assigned as default = null
         public BoardManager boardScript;
         [HideInInspector] public bool playersTurn = true;
         public Player playerscript;
@@ -23,7 +23,7 @@ using UnityEngine.UI;
         // Use this for initialization
         public void Awake()
         {
-            Debug.Log("waking up " + playerscript.restarts + " " + MyGlobals.jlevel);
+            Debug.Log("waking up " + MyGlobals.restarts + " " + MyGlobals.jlevel);
            // if (instance == null)
             instance = this;
          //   else if (instance != this)
@@ -31,35 +31,52 @@ using UnityEngine.UI;
                 //    Destroy(gameObject);
              //       Debug.LogWarning("Destroyed instance, already running", instance);
             //     }
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // dont destroy the game object when restart, keeps constant between restarts
             enemies = new List<Enemy>();
+            releaseCheck(); //chhecks a constant variable
             boardScript = GetComponent<BoardManager>();
-            Debug.Log("logging " + playerscript.restarts);
-            levelcheck();
-            Debug.Log(MyGlobals.jlevel);
+            Debug.Log("logging " + MyGlobals.restarts);
+            levelcheck(); // level check
+            Debug.Log(MyGlobals.jlevel); // logs the level for debugging purposes, can probably be removed soon
             ClearConsole();
         }
-    private void ClearConsole()
+    private void releaseCheck()
     {
-        Debug.ClearDeveloperConsole();
+        if (MyGlobals.Release == true) // checks a static boolean set in Loader.cs
+        {
+            #pragma warning disable CS0162 // Unreachable code detected
+            MyGlobals.jlevel = 1; // (de)activates level select debug level
+            #pragma warning restore CS0162 // Unreachable code detected
+        }
+       }
+    public void ClearConsole()
+    {
+       Debug.ClearDeveloperConsole(); // TODO: fix.    currently this is broken, not sure why.
     }
     private void levelcheck()
     {
-            Debug.Log("level " + MyGlobals.jlevel + " load " + playerscript.restarts);
+            Debug.Log("level " + MyGlobals.jlevel + " load " + MyGlobals.restarts);
             InitGame();
        }
 
       public void InitGame()
         {
-             Debug.Log("Doing Setup " + playerscript.restarts);
-            doingSetup = true;
-            levelImage = GameObject.Find("LevelImage");
-            levelText = GameObject.Find("LevelText").GetComponent<Text>();
+             Debug.Log("Doing Setup " + MyGlobals.restarts);
+            doingSetup = true; // variable used to stop all other funtions.
+            levelImage = GameObject.Find("LevelImage"); // pulls the level image variable from the actual leveltext object
+            levelText = GameObject.Find("LevelText").GetComponent<Text>(); // pulls the level text variable from the actual leveltext object
+        if (MyGlobals.jlevel == 0)
+        {
+            levelText.text = "Level Select";
+        }
+        else
+        {
             levelText.text = "Day " + MyGlobals.jlevel;
+        }
             levelImage.SetActive(true);
             Invoke("HideLevelImage", LevelStartDelay);
             enemies.Clear();
-            boardScript.SetupScene(MyGlobals.jlevel);
+            boardScript.SetupScene(MyGlobals.jlevel); //tells boardmanager to setup the scene, passing in the level.
         }
 
         private void HideLevelImage()
@@ -67,7 +84,7 @@ using UnityEngine.UI;
         levelImage.SetActive(false);
         doingSetup = false;
         }
-        
+
         public void GameOver()
         {
             levelText.text = "After " + MyGlobals.jlevel + " days, you starved.";
@@ -88,7 +105,6 @@ using UnityEngine.UI;
     public void AddEnemyToList(Enemy script)
     {
         enemies.Add(script);
-
     }
 
     IEnumerator MoveEnemies()
@@ -102,7 +118,7 @@ using UnityEngine.UI;
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].MoveEnemy();
-            yield return new WaitForSeconds(enemies[i].moveTime); 
+            yield return new WaitForSeconds(enemies[i].moveTime);
         }
         playersTurn = true;
         enemiesMoving = false;
