@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
     public class GameManager : MonoBehaviour
-    {   
+    {
     //THISCODEISANANGRYMARTIAN
         public float LevelStartDelay =  2f;
         public float turnDelay = .1f;
-        public static GameManager instance = null;
+        public static GameManager instance; //not assigned as default = null
         public BoardManager boardScript;
         [HideInInspector] public bool playersTurn = true;
         public Player playerscript;
@@ -55,7 +55,14 @@ using UnityEngine.UI;
             doingSetup = true;
             levelImage = GameObject.Find("LevelImage");
             levelText = GameObject.Find("LevelText").GetComponent<Text>();
+        if (MyGlobals.jlevel == 0)
+        {
+            levelText.text = "Level Select";
+        }
+        else
+        {
             levelText.text = "Day " + MyGlobals.jlevel;
+        }
             levelImage.SetActive(true);
             Invoke("HideLevelImage", LevelStartDelay);
             enemies.Clear();
@@ -67,7 +74,7 @@ using UnityEngine.UI;
         levelImage.SetActive(false);
         doingSetup = false;
         }
-        
+
         public void GameOver()
         {
             levelText.text = "After " + MyGlobals.jlevel + " days, you starved.";
@@ -102,7 +109,7 @@ using UnityEngine.UI;
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].MoveEnemy();
-            yield return new WaitForSeconds(enemies[i].moveTime); 
+            yield return new WaitForSeconds(enemies[i].moveTime);
         }
         playersTurn = true;
         enemiesMoving = false;

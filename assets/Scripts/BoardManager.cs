@@ -24,12 +24,14 @@ public class BoardManager : MonoBehaviour
         public int rows = 8;
         public Count wallCount = new Count(5, 9);
         public Count foodCount = new Count(1, 5);
+        public Count levelcount = new Count(3, 9);
         public GameObject exit;
         public GameObject[] floorTiles;
         public GameObject[] wallTiles;
         public GameObject[] foodTiles;
         public GameObject[] enemyTiles;
         public GameObject[] outerWallTIles;
+    public GameObject[] levelTiles;
 
         private Transform boardHolder;
         private List <Vector3> gridPositions = new List <Vector3> ();
@@ -87,14 +89,21 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        public void SetupScene(int level)
-        {
+    public void SetupScene(int level)
+    {
             BoardSetup();
             InitialiseList();
             LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+        if (level == 0)
+        {
+            LayoutObjectAtRandom(levelTiles, levelcount.minimum, levelcount.maximum);
+        }
+        else
+        {
             LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
-            int enemyCount = (int)Mathf.Log(level, 2f);
+            int enemyCount = (int)Mathf.Log(MyGlobals.jlevel, 2f);
             LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+        }
             Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
         }
     }
