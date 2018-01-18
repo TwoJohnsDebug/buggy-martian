@@ -1,7 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "buggy-martian.CSharp", "buggy-martian.CSharp.csproj", "{9E8135D3-6F88-6B75-508B-41E2B0BE9FD2}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+Project("{DE372937-7A62-B489-3BC0-97C49FB306B4}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{E2BC0AF4-FA9D-94CE-24BD-3380AEBF2D8D}"
+EndProject
+Project("{DE372937-7A62-B489-3BC0-97C49FB306B4}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{014F537C-FB59-E1D9-EE60-9C7DB73D9EFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +10,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E8135D3-6F88-6B75-508B-41E2B0BE9FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E8135D3-6F88-6B75-508B-41E2B0BE9FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E8135D3-6F88-6B75-508B-41E2B0BE9FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E8135D3-6F88-6B75-508B-41E2B0BE9FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2BC0AF4-FA9D-94CE-24BD-3380AEBF2D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BC0AF4-FA9D-94CE-24BD-3380AEBF2D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2BC0AF4-FA9D-94CE-24BD-3380AEBF2D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2BC0AF4-FA9D-94CE-24BD-3380AEBF2D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014F537C-FB59-E1D9-EE60-9C7DB73D9EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014F537C-FB59-E1D9-EE60-9C7DB73D9EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014F537C-FB59-E1D9-EE60-9C7DB73D9EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014F537C-FB59-E1D9-EE60-9C7DB73D9EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
